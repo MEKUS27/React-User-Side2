@@ -10,6 +10,7 @@ import Container from '../components/Container';
 
 function OurStore() {
     const [grid, setGrid] = useState(4);
+    console.log(grid)
 
     return (
         <>
@@ -144,9 +145,14 @@ function OurStore() {
                                 <div className='d-flex justify-content-between align-items-center'>
                                     <div className='d-flex align-items-center gap-10'>
                                         <p className='mb-0 d-block' style={{ width: "100px" }}>Sort By:</p>
-                                        <select name='' className='form-control form-select'>
+                                        <select 
+                                            defaultValue={"manual"}
+                                            name='' 
+                                            className='form-control form-select'
+                                            >
+                                            {/* <option disabled value="DEFAULT">Select</option> */}
                                             <option value="manual">Featured</option>
-                                            <option value="best-selling" selected="selected">
+                                            <option value="best-selling" >
                                                 Best selling
                                             </option>
                                             <option value="title-ascending">
@@ -202,6 +208,7 @@ function OurStore() {
                             </div>
                             <div className='products-list pb-5'>
                                 <div className='d-flex gap-10 flex-wrap'>
+                                    <ProductCard grid={grid} />
                                     <ProductCard grid={grid} />
                                 </div>
                             </div>
